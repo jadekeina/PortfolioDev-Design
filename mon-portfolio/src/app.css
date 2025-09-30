@@ -1,1 +1,55 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+.homemade-apple-regular {
+    font-family: "Homemade Apple", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 @import 'tailwindcss';
+
+/* met ça dans src/app.css après @import 'tailwindcss' */
+
+:root {
+    /* fallback pour que l’IDE ne signale pas la var comme “non résolue” */
+    --marquee-duration: 30s;
+}
+
+/* masque de bords */
+.marquee-mask {
+    /* standard */
+    mask-image: linear-gradient(
+            to right,
+            transparent 0,
+            #000 128px,
+            #000 calc(100% - 128px),
+            transparent 100%
+    );
+}
+
+/* Safari : on garde la version -webkit mais on l'encapsule pour calmer le linter */
+@supports (-webkit-mask-image: linear-gradient(#000, #000)) {
+    .marquee-mask {
+        -webkit-mask-image: linear-gradient(
+                to right,
+                transparent 0,
+                #000 128px,
+                #000 calc(100% - 128px),
+                transparent 100%
+        );
+    }
+}
+
+/* animations (boucle infinie) */
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+@keyframes marquee-rtl {
+    from { transform: translateX(0); }
+    to   { transform: translateX(50%); }
+}
+
+.animate-marquee    { animation: marquee     var(--marquee-duration, 30s) linear infinite; }
+.animate-marquee-rtl{ animation: marquee-rtl var(--marquee-duration, 30s) linear infinite; }
