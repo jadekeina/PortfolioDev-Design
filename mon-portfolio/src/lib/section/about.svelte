@@ -11,9 +11,9 @@
     <div class="container">
         <div class="terminal_toolbar">
             <div class="butt">
-                <button class="btn btn-color"></button>
-                <button class="btn"></button>
-                <button class="btn"></button>
+                <button class="btn btn-color butt--exit" type="button" aria-label="Close window"></button>
+                <button class="btn" type="button" aria-label="Minimize window"></button>
+                <button class="btn" type="button" aria-label="Maximize window"></button>
             </div>
             <p class="user">jade-keinap@admin: ~</p>
             <div class="add_tab">
@@ -103,9 +103,6 @@
         outline: none;
     }
 
-    .butt--exit {
-        background: linear-gradient(#f37458 0%, #de4c12 100%);
-    }
 
     .add_tab {
         border: 1px solid #fff;

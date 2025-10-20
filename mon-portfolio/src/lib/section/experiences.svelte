@@ -111,7 +111,7 @@
                 class={`absolute left-0 top-0 w-px
               ${mode === 'design' ? 'bg-neutral-100' : 'bg-[#0A0A0A]'}`}
                 style="height: {Math.round(progress * 100)}%"
-        />
+        ></div>
     </div>
 
     <header class="mb-8 text-center">

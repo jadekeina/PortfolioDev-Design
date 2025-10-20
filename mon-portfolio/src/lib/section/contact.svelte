@@ -18,7 +18,7 @@
 </script>
 
 {#if mode === "design"}
-
+    <span aria-hidden="true" class="hidden"></span>
 {:else}
 
 <section class="w-full min-h-screen px-6 py-14 md:py-20" style="background: #EFE6E3;">
