@@ -5,10 +5,12 @@
     $:mode = $modeStore as "design" | "dev";
 
     const navItems = [
-        {href: "/work", label: "Work"},
-        {href: "/skills", label: "Skills"},
-        {href: "/about", label: "About"},
-        {href: "/contact", label: "Contact"}
+        {href: "#about", label: "About"},
+        {href: "#experiences", label: "Experiences"},
+        {href: "#work", label: "Work"},
+        {href: "#skills", label: "Skills"},
+        {href: "#contact", label: "Contact"},
+
     ]
 
     function toggleMode() {
@@ -20,7 +22,7 @@
     }
 </script>
 
-<header class={`w-full fixed top-0 z-50 ${theme[mode].background}`}> 
+<header class={`w-full fixed top-0 z-50 ${theme[mode].background}`}>
     <nav class="max-w-6xlmx-auto flex items-center justify-between h-16 px-4">
         <!--Logo-->
         <a href="/" class="{theme[mode].text}">
@@ -38,7 +40,7 @@
                                     />
                                 </div>
                         </li>
-                        
+
             {#each navItems as item}
                 <li>
                     <a

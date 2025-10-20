@@ -1,28 +1,35 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    let logosEl: HTMLUListElement;         // ↙︎ remplace x-ref
-    export let items: { src: string; alt: string }[] = [];
-    export let duration = 30;              // secondes
-    export let rtl = false;                // sens inverse (droite → gauche)
+
+    type ImageItem = { src: string; alt: string };
+    type TextItem  = { text: string };
+    type MarqueeItem = ImageItem | TextItem;
+
+    export let items: MarqueeItem[] = [];
+    export let duration = 30;
+    export let rtl = false;
+
+    let ulEl: HTMLUListElement;
 
     onMount(() => {
-        const ul = logosEl;
-        const clone = ul.cloneNode(true) as HTMLUListElement;
-        clone.setAttribute("aria-hidden", "true");   // a11y
-        ul.parentNode?.insertBefore(clone, ul.nextSibling);
+        const clone = ulEl.cloneNode(true) as HTMLUListElement;
+        clone.setAttribute("aria-hidden", "true");
+        ulEl.parentNode?.insertBefore(clone, ulEl.nextSibling);
     });
 </script>
 
-<div
-        class="w-full inline-flex flex-nowrap overflow-hidden marquee-mask"
-        style={`--marquee-duration:${duration}s`}
->
-    <ul
-            bind:this={logosEl}
-            class={`flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none ${rtl ? 'animate-marquee-rtl' : 'animate-marquee'}`}
-    >
+<div class="w-full inline-flex flex-nowrap overflow-hidden marquee-mask"
+     style={`--marquee-duration:${duration}s`}>
+    <ul bind:this={ulEl}
+        class={`flex items-center [&_li]:mx-8 ${rtl ? 'animate-marquee-rtl' : 'animate-marquee'}`}>
         {#each items as it}
-            <li><img src={it.src} alt={it.alt} /></li>
+            <li>
+                {#if 'src' in it}
+                    <img src={it.src} alt={it.alt} class="h-15 w-auto" />
+                {:else}
+                    <span class="text-xl font-semibold">{it.text}</span>
+                {/if}
+            </li>
         {/each}
     </ul>
 </div>
