@@ -4,7 +4,7 @@ type Mode = "design" | "dev";
 
 function createModeStore() {
     // valeur par défaut
-    let initial: Mode = "design";
+    let initial: Mode = "dev";
 
     if (typeof window !== "undefined") {
         const params = new URLSearchParams(window.location.search);

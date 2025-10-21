@@ -80,7 +80,7 @@
 
 
   ]}
-                        srcMp4="/videos/tuto.mp4"
+                        srcMp4="/videos/test.mp4"
                         poster="/images/ecodeli-poster.jpg"
                         technologies={["React","Node.js","MySQL","Docker","Express","MySQL","TailwindCSS","i18n","JWT"]}
                         duration="3 mois"
@@ -100,7 +100,7 @@
     "Mise en place du système de paiements via Stripe (création de comptes, facturation automatique, historique des transactions).",
     "Implémentation de l’authentification sécurisée (JWT), et du stockage des données sur MySQL avec Sequelize.",
   ]}
-                        srcMp4="/videos/drivncook.mp4"
+                        srcMp4="/videos/tuto.mp4"
                         poster="/images/drivncook-poster.jpg"
                         technologies={[
     "SvelteKit",

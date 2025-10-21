@@ -15,6 +15,11 @@
         const clone = ulEl.cloneNode(true) as HTMLUListElement;
         clone.setAttribute("aria-hidden", "true");
         ulEl.parentNode?.insertBefore(clone, ulEl.nextSibling);
+        const clone2 = ulEl.cloneNode(true) as HTMLUListElement;
+        clone2.setAttribute("aria-hidden", "true");
+        ulEl.parentNode?.insertBefore(clone2, ulEl.nextSibling);
+
+
     });
 </script>
 
@@ -25,7 +30,7 @@
         {#each items as it}
             <li>
                 {#if 'src' in it}
-                    <img src={it.src} alt={it.alt} class="h-15 w-auto" />
+                    <img src={it.src} alt={it.alt} class="h-18 w-auto" />
                 {:else}
                     <span class="text-xl font-semibold">{it.text}</span>
                 {/if}
