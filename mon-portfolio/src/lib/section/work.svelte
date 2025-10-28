@@ -1,53 +1,74 @@
 <script lang="ts">
     import { modeStore } from "$lib/stores/modes";
     import ProjectCase from "$lib/components/ProjectCase.svelte";
+    import ellam from "$lib/assets/ellam.png";
+    import smith from "$lib/assets/smith.png";
+    import angel from "$lib/assets/angel.png";
+    import tilipe from "$lib/assets/tilipe.png";
+    import BCB1 from "$lib/assets/BCB1.png";
+    import BCB2 from "$lib/assets/BCB2.png";
+    import BCB3 from "$lib/assets/BCB3.png";
     $: mode = $modeStore;
+
 </script>
 
 {#if mode === "design"}
     <!-- MODE DESIGN -->
     <section class="w-full px-6 py-20 md:py-28" style="background:#0A0A0A;">
-        <div class="mx-[4em] max-w-[100em]">
-            <!-- Header avec animation subtile -->
+        <div class="mx-[4em] max-w-[130em]">
             <div class="mb-16 md:mb-20">
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight" style="color:#EFE6E3">
-                    Work
-                </h1>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight" style="color:#EFE6E3">Work</h1>
                 <p class="text-lg md:text-xl max-w-2xl" style="color:rgba(239,230,227,.6)">
-                    Une sélection de projets design qui allient créativité et fonctionnalité.
+                    Une sélection de projets…
                 </p>
             </div>
 
-            <!-- Grille de projets moderne -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
-                <ProjectCase
-                        tone="design"
-                        title="EcoDeli"
-                        summary="Plateforme de gestion pour franchises. Front SvelteKit + API Node/Express, MySQL avec auth et dashboard complet : "
-                        srcMp4="/videos/tuto.mp4"
-                        poster="/images/ecodeli-poster.jpg"
-                        technologies={["SvelteKit","Node","MySQL","Docker"]}
-                        duration="1 mois"
-                        role="Front + API"
-                        year="2025"
-                        githubUrl="https://github.com/jadekeina/DRIVN_COOK"
-                />
+            <!-- FIX : utilise grid-cols-[...] -->
+            <div class="grid grid-cols-12 gap-6 auto-rows-[240px]">
+                <div class="col-span-8 row-span-2 rounded-xl bg-white/5 overflow-hidden relative group cursor-pointer">
+                    <div class="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+                        <img src={BCB1} alt="Bcb1" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <div class="col-span-4 row-span-1 rounded-xl bg-white/5 overflow-hidden relative group cursor-pointer">
+                    <div class="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+                        <img src={BCB2} alt="Bcb2" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <div class="col-span-4 row-span-1 rounded-xl bg-white/5 overflow-hidden relative group cursor-pointer">
+                    <div class="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+                        <img src={BCB3} alt="Bcb3" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <!-- posters -->
+                <div class="col-span-3 row-span-2 rounded-xl bg-white/5 overflow-hidden relative group cursor-pointer">
+                    <div class="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+                        <img src={ellam} alt="Ellam poster" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <div class="col-span-3 row-span-2 rounded-xl bg-white/5 overflow-hidden relative group cursor-pointer">
+                    <div class="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+                        <img src={smith} alt="Smith poster" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <div class="col-span-3 row-span-2 rounded-xl bg-white/5 overflow-hidden relative group cursor-pointer">
+                    <div class="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+                        <img src={angel} alt="Angel poster" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <div class="col-span-3 row-span-2 rounded-xl bg-white/5 overflow-hidden relative group cursor-pointer">
+                    <div class="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+                        <img src={tilipe} alt="Tilipe poster" class="w-full h-full object-cover" />
+                    </div>
+                </div>
 
-                <ProjectCase
-                        tone="design"
-                        title="Driv'n Cook"
-                        summary="Système de réservation pour foodtrucks. UI responsive avec gestion de créneaux et intégration API sandbox."
-                        srcMp4="/videos/tuto.mp4"
-                        poster="/images/drivncook-poster.jpg"
-                        technologies={["UI","Formulaires","Fetch API"]}
-                        duration="1 semaine"
-                        role="Front"
-                        year="2025"
-                        githubUrl="https://github.com/…"
-                />
+                <div class="col-span-6 row-span-2 rounded-xl bg-white/5"></div>
+                <div class="col-span-6 row-span-2 rounded-xl bg-white/5"></div>
             </div>
+
         </div>
     </section>
+
 {:else}
     <!-- MODE DEV -->
     <section class="w-full px-6 py-20 md:py-28" style="background:#EFE6E3;">
