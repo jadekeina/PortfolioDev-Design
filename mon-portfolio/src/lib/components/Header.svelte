@@ -12,6 +12,10 @@
         {href: "#contact", label: "Contact"},
     ]
 
+    import blue_logo from "$lib/assets/jkpm-bleu.png";
+    import noir_logo from "$lib/assets/jkpm-noir.png";
+
+
     let isHoveringSwitch = false;
 
     function toggleMode() {
@@ -23,12 +27,14 @@
     }
 </script>
 
-<header class={`w-full fixed top-0 z-50 ${theme[mode].background}`}>
-    <nav class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4">
+<header class={`w-full fixed top-0 z-50 ${theme[mode].background2}`}>
+    <nav class="w-full flex items-center justify-between h-16 px-6 ">
         <!--Logo-->
-        <a href="/" class="{theme[mode].text} font-bold text-lg">
-            Jade-Keina
-        </a>
+        {#if mode ==="design"}
+            <img class="w-[7em] "  alt="logo" src={blue_logo}>
+        {:else}
+            <img class="w-[7em]"  alt="logo" src={noir_logo}>
+        {/if}
 
         <!-- Menu Desktop -->
         <ul class="hidden md:flex items-center gap-6">
@@ -49,7 +55,7 @@
                         <!-- Flèche courbée style dessin à main levée -->
                         <path
                                 d="M 5 20 Q 15 15, 25 18 Q 35 21, 45 19 L 42 15 M 45 19 L 42 23"
-                                stroke="{mode === 'dev' ? '#BFA1DB' : '#A0D5FD'}"
+                                stroke="{mode === 'dev' ? '#0A0A0A' : '#A0D5FD'}"
                                 stroke-width="2.5"
                                 fill="none"
                                 stroke-linecap="round"
@@ -66,7 +72,7 @@
                     <span
                             class="font-handwriting text-base whitespace-nowrap transition-all duration-300"
                             style="
-                            color: {mode === 'dev' ? '#BFA1DB' : '#A0D5FD'};
+                            color: {mode === 'dev' ? '#0A0A0A' : '#A0D5FD'};
                             transform: scale({isHoveringSwitch ? 1.15 : 1}) translateY({isHoveringSwitch ? '-2px' : '0'});
                             text-shadow: 0 1px 2px rgba(0,0,0,0.1);
                         "

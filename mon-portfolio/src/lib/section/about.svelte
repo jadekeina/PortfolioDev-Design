@@ -1,73 +1,156 @@
 <script lang="ts">
+
     import { modeStore } from "$lib/stores/modes";
     $: mode = $modeStore;
 </script>
 
-{#if mode==='design'}
-    <div class="flex justify-center items-center bg-[#A0D5FD]/90 h-[35em]">
-        <div class="card">
-            <div class="tools">
-                <div class="circle">
-                    <span class="red box"></span>
+{#if mode === 'design'}
+    <div class="flex justify-center items-center bg-[#A0D5FD] min-h-[40em] px-4">
+
+        <div class="w-full max-w-3xl bg-white rounded-xl shadow-2xl overflow-hidden border border-white/20">
+
+            <div class="bg-[#E8E8E8] h-10 flex items-center px-4 relative">
+                <div class="flex gap-2 z-10">
+                    <div class="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#27C93F]"></div>
                 </div>
-                <div class="circle">
-                    <span class="yellow box"></span>
-                </div>
-                <div class="circle">
-                    <span class="green box"></span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-xs text-gray-500 font-medium">Terminal — -zsh — 80×24</span>
                 </div>
             </div>
-            <div class="card__content">
-                soon
-            </div>
-        </div>
 
+            <div class="p-8 lg:p-12 text-gray-800 text-xs lg:text-xl leading-relaxed font-sans">
+                <p class="mb-6">
+                    Je suis <span class="text-[#BFA1DB]  font-bold">étudiante en informatique</span> et
+                    <span class="text-[#BFA1DB]  font-bold">graphiste freelance</span>.
+                    Le design est d’abord devenu un moyen d’exprimer mes idées, puis une façon d’aider les autres à
+                    <span class="text-black font-extrabold">clarifier les leurs</span>.
+                </p>
 
-    </div>
+                <p class="mb-6">
+                    J’aime <span class="text-black font-extrabold underline decoration-blue-500/30 underline-offset-4">comprendre un projet</span> avant de le dessiner :
+                    son intention, son message et ce qu’il doit transmettre.
+                    Mon objectif n’est pas seulement de créer quelque chose de beau, mais quelque chose de
+                    <span class="text-[#E29D88] font-bold">juste et cohérent</span>.
+                </p>
 
+                <p class="mb-8">
+                    Chaque collaboration est pour moi un <span class="text-black font-extrabold italic">échange</span> —
+                    je conçois des visuels pensés pour <span class="italic font-medium">durer</span>,
+                    <span class="italic font-medium">évoluer</span> et représenter fidèlement ceux qui les portent.
+                </p>
 
-    {:else}
-    <div class="flex justify-center items-center bg-[#BFA1DB]/90 h-[35em]">
-    <div class="container">
-        <div class="terminal_toolbar">
-            <div class="butt">
-                <button class="btn btn-color butt--exit" type="button" aria-label="Close window"></button>
-                <button class="btn" type="button" aria-label="Minimize window"></button>
-                <button class="btn" type="button" aria-label="Maximize window"></button>
-            </div>
-            <p class="user">jade-keinap@admin: ~</p>
-            <div class="add_tab">
-                +
-            </div>
-        </div>
-        <div class="terminal_body">
-            <div class="terminal_promt flex flex-col">
-                <div>
-                    <span class="terminal_user">@Qui-est-tu?:</span>
-                    <span class="terminal_location">~</span>
-                    <span class="terminal_bling">$</span>
-                    <span class="terminal_bling"> Salut, je suis Jade-Keina Pognon, étudiante en informatique depuis maintenant 4 ans, </span>
-
+                <div class="flex items-center gap-2">
+                    <span class="font-mono text-[#BFA1DB] font-bold">$</span>
+                    <div class="w-2.5 h-5 bg-[#BFA1DB] animate-pulse"></div>
                 </div>
-                <div>
-                    <span class="w-200 text-[#1eff8e]">@Que-sais-tu-faire?:</span>
-                    <span class="terminal_location">~</span>
-                    <span class="terminal_bling">$</span>
-                    <span class="terminal_cursor"></span>
-                </div>
-                <div>
-                    <span class="w-200 text-[#1eff8e]">@Quel-sont-tes-projets?:</span>
-                    <span class="terminal_location">~</span>
-                    <span class="terminal_bling">$</span>
-                    <span class="terminal_cursor"></span>
-                </div>
-
             </div>
         </div>
     </div>
+
+
+
+
+{:else}
+    <div class="flex justify-center items-center bg-[#BFA1DB] min-h-[45em] py-20 px-4">
+        <div class="w-full max-w-4xl h-[500px] bg-[#0d0d0d] rounded-lg overflow-hidden shadow-2xl border border-gray-800 flex flex-col">
+
+            <div class="bg-[#2d2d2d] h-9 flex items-center justify-between px-4">
+                <div class="flex items-center gap-2">
+                    <span class="font-mono text-xs text-gray-400">PS > kali@kali: /home/kali</span>
+                </div>
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-[#444]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#444]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#444]"></div>
+                </div>
+            </div>
+
+            <div class="relative flex-grow p-6 font-mono text-sm lg:text-base overflow-y-auto">
+
+                <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
+                    <img src="/src/lib/assets/kali-logo.png" alt="" class="w-2/3 object-contain" />
+                </div>
+
+                <div class="relative z-10 space-y-6">
+
+                    <div>
+                        <div class="flex flex-wrap items-center gap-1">
+                            <span class="text-[#2ecc71]">┌──(</span>
+                            <span class="text-[#3498db] font-bold">kali㉿kali</span>
+                            <span class="text-[#2ecc71]">)-[</span>
+                            <span class="text-white">/home/jade</span>
+                            <span class="text-[#2ecc71]">]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[#2ecc71]">└─</span>
+                            <span class="text-[#e91e63] font-bold">$</span>
+                            <span class="text-gray-100 italic">whoami</span>
+                        </div>
+                        <p class="mt-2 text-gray-300 leading-relaxed pl-4 border-l-2 border-[#BFA1DB]/50">
+                            Étudiante en <span class="text-white font-semibold">école d'ingénieur informatique</span> (2 ans).
+                            Anciennement <span class="text-[#BFA1DB]">Dev Full-stack</span> (API, Web), je pivote vers la Sécurité Offensive.
+                            Mon approche : comprendre comment on construit pour mieux savoir comment on infiltre.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap items-center gap-1">
+                            <span class="text-[#2ecc71]">┌──(</span>
+                            <span class="text-[#3498db] font-bold">kali㉿kali</span>
+                            <span class="text-[#2ecc71]">)-[</span>
+                            <span class="text-white">/audit/skills</span>
+                            <span class="text-[#2ecc71]">]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[#2ecc71]">└─</span>
+                            <span class="text-[#e91e63] font-bold">$</span>
+                            <span class="text-gray-100 italic">cat capabilities.log</span>
+                        </div>
+                        <div class="mt-2 text-gray-400 pl-4 border-l-2 border-[#BFA1DB]/50 space-y-2">
+                            <p>
+                                <span class="text-[#2ecc71] font-bold">✔ INFRA:</span> Réseaux, Virtualisation (VMware), Déploiement d'environnements sécurisés.
+                            </p>
+                            <p>
+                                <span class="text-[#2ecc71] font-bold">✔ PENTEST:</span> Reconnaissance (Passive/Active), Analyse de vulnérabilités, Exploitation & Post-exploitation.
+                            </p>
+                            <p class="text-xs italic opacity-80">
+                                Maîtrise de la chaîne d'attaque pour une défense plus résiliente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap items-center gap-1">
+                            <span class="text-[#2ecc71]">┌──(</span>
+                            <span class="text-[#3498db] font-bold">kali㉿kali</span>
+                            <span class="text-[#2ecc71]">)-[</span>
+                            <span class="text-white">/skills</span>
+                            <span class="text-[#2ecc71]">]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[#2ecc71]">└─</span>
+                            <span class="text-[#e91e63] font-bold">$</span>
+                            <span class="text-gray-100 italic">ls --tech-stack</span>
+                        </div>
+                        <p class="mt-2 text-gray-400 leading-relaxed pl-4 border-l-2 border-gray-800 text-sm italic">
+                            Développement Web, API, Réseaux (IP/Virtualisation) & IA.
+                            Ma force ? Comprendre le code pour mieux le protéger.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span class="text-[#2ecc71]">└─</span>
+                        <span class="text-[#e91e63] font-bold">$</span>
+                        <span class="w-2 h-5 bg-[#BFA1DB] animate-pulse"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    {/if}
+{/if}
 
 
 <style>
@@ -154,6 +237,7 @@
         display: flex;
         width: 100%;
         height: 100%;
+
     }
 
     .terminal_promt span {

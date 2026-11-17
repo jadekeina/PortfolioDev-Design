@@ -1,6 +1,6 @@
 <script lang="ts">
     import { modeStore } from "$lib/stores/modes";
-    import { onMount } from 'svelte';
+    import emailjs from '@emailjs/browser'; // Import direct plus fiable
 
     let formData = {
         nom: '',
@@ -11,33 +11,14 @@
 
     let isSubmitting = false;
     let submitStatus: 'idle' | 'success' | 'error' = 'idle';
-    let emailjs: any;
-
-    // Charger EmailJS
-    onMount(async () => {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-        script.onload = () => {
-            emailjs = (window as any).emailjs;
-            // Remplace par ta PUBLIC KEY
-            emailjs.init('A19W4Pn3zvlmMUB8x');
-        };
-        document.head.appendChild(script);
-    });
 
     async function handleSubmit(e: Event) {
         e.preventDefault();
-
-        if (!emailjs) {
-            alert('EmailJS n\'est pas encore chargé, veuillez réessayer');
-            return;
-        }
 
         isSubmitting = true;
         submitStatus = 'idle';
 
         try {
-            // Prépare les données pour EmailJS
             const templateParams = {
                 from_name: formData.nom,
                 from_email: formData.email,
@@ -45,21 +26,17 @@
                 message: formData.amelioration || 'Aucun commentaire'
             };
 
-            // Envoie l'email
-            // Remplace YOUR_SERVICE_ID et YOUR_TEMPLATE_ID
-            const response = await emailjs.send(
-                'service_0192xhm',      // Ex: service_abc123
-                'template_s10jpgg',     // Ex: template_xyz789
-                templateParams
+            // Utilise tes identifiants ici
+            await emailjs.send(
+                'service_0192xhm',
+                'template_s10jpgg',
+                templateParams,
+                'A19W4Pn3zvlmMUB8x' // Ta clé publique passée directement ici
             );
 
-            console.log('SUCCESS!', response.status, response.text);
             submitStatus = 'success';
-
-            // Réinitialiser le formulaire
             formData = { nom: '', email: '', trouvePar: '', amelioration: '' };
 
-            // Masquer le message après 5 secondes
             setTimeout(() => {
                 submitStatus = 'idle';
             }, 5000);
@@ -262,14 +239,6 @@
                     </div>
                 </div>
 
-                <a
-                        href="/cv/jade-keina-cv.pdf"
-                        download="Jade-Keina-CV.pdf"
-                        class="inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 border-2"
-                        style="color: #A0D5FD; border-color: #A0D5FD;"
-                >
-                    Consulter mon Curriculum Vitae
-                </a>
             </div>
         </div>
     </section>
@@ -462,8 +431,8 @@
                 </div>
 
                 <a
-                        href="/cv/jade-keina-cv.pdf"
-                        download="Jade-Keina-CV.pdf"
+                        href="/cv/cv.pdf"
+                        download="cv.pdf"
                         class="inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 border-2"
                         style="color: #4A1C40; border-color: #4A1C40;"
                 >

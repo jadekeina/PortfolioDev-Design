@@ -11,8 +11,8 @@
 </script>
 <section id="hero"> <Hero/></section>
 <section id="about"> <About/></section>
-<section id="experiences"> <Experiences/></section>
 <section id="work"> <Work></Work></section>
+<section id="experiences"> <Experiences/></section>
 <section id="skills"> <Skills/></section>
 <section id="contact"> <Contact/></section>
 

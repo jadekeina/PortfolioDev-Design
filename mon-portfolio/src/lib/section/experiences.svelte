@@ -30,7 +30,8 @@
                 "Tests E2E"
             ],
             tech: ["Svelte", "TypeScript", "Tailwind", "Git", "Docker", "Figma"]
-        },
+        }
+        /*
         {
             id: "freelance",
             period: "Projet",
@@ -52,7 +53,7 @@
             summary:
                 "Maquettes Figma (hi-fi), micro-itérations UX, handover propre pour dev.",
             tech: ["Figma", "Photoshop", "Illustrator"]
-        },
+        } */
     ];
 
     const items = itemsBase.map((it, i) => ({
@@ -101,7 +102,7 @@
 <section
         bind:this={sectionEl}
         class={`relative mx-auto w-full px-4 py-20
-          ${mode === 'design' ? 'bg-[#0A0A0A] text-neutral-50' : 'bg-white text-[#0A0A0A]]'}`}
+          ${mode === 'design' ? 'bg-[#0A0A0A] text-neutral-50' : 'bg-[#DBCDF0]/30 text-[#0A0A0A]]'}`}
 >
     <!-- Ligne centrale + progression -->
     <div class="pointer-events-none absolute left-1/2 top-0 h-full w-px -translate-x-1/2
